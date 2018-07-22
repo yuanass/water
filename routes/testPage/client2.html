@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>客户端2</title>
+</head>
+
+<body>
+    <label>聊天内容:</label>
+    <br/>
+    <textarea id="content" style="height: 200px; width:300px;"></textarea>
+    <br/>
+    <input id="sendMsg" type="text" />
+    <button id="btn_send">发送</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+
+    <script type="text/javascript">
+        var socket = io.connect("http://localhost:3000");
+        socket.on("receiveMsg", function (data) {
+            content.value += data.client + ":" + data.msg + "\r\n";
+        });
+        var content = document.getElementById("content");
+        var sendMsg = document.getElementById("sendMsg");
+        var btn_send = document.getElementById("btn_send");
+        btn_send.addEventListener("click", function () {
+            var data = { client: "客户端2", msg: sendMsg.value };
+            socket.emit("sendMsg", data);
+            content.value += data.client + ":" + data.msg + "\r\n";
+            sendMsg.value = "";
+        });
+
+    </script>
+</body>
+
+</html>

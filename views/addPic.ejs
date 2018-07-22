@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>上传文件</title>
+</head>
+<body>
+<h1>使用multer中间件上传文件</h1>
+<form enctype="multipart/form-data" method="post" action="add">
+请选择文件：<input type="file" id="file1" name="file" multiple/><br/>
+<!-- <input type="file" id="file2" name="file" multiple/><br/> -->
+<!-- <input type="file" id="file3" name="file" multiple/><br/> -->
+<!-- <input type="file" id="file4" name="file" multiple/><br/> -->
+    <label>姓名</label>
+    <input type="text" id="txtUsername" name="username"/><br/>
+    <label>密码</label>
+    <input type="text" id="txtPassword" name="password"/><br/>
+    <label>邮箱</label>
+    <input type="text" id="txtEmail" name="email"/><br/>
+    <label>电话</label>
+    <input type="text" id="txtMobile" name="mobile"/><br/>
+<input type="submit" value="上传文件"/>
+</form>
+</body>
+</html>
